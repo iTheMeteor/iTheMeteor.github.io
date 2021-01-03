@@ -87,7 +87,7 @@
 <meta property="og:description" content="2021.01.02239. Sliding Window Maximum [Hard]   You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can o">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-02T13:35:53.000Z">
-<meta property="article:modified_time" content="2021-01-02T14:47:19.421Z">
+<meta property="article:modified_time" content="2021-01-03T11:58:31.731Z">
 <meta property="article:author" content="iTheMeteor">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="LeetCode">
@@ -415,6 +415,7 @@
 <p><strong>Example 1:</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Input: nums = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">-1</span>,<span class="number">-3</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>], k = <span class="number">3</span></span><br><span class="line">Output: [<span class="number">3</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line">Explanation: </span><br><span class="line">Window position                Max</span><br><span class="line">---------------               -----</span><br><span class="line">[<span class="number">1</span>  <span class="number">3</span>  <span class="number">-1</span>] <span class="number">-3</span>  <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>  [<span class="number">3</span>  <span class="number">-1</span>  <span class="number">-3</span>] <span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">3</span></span><br><span class="line"> <span class="number">1</span>   <span class="number">3</span> [<span class="number">-1</span>  <span class="number">-3</span>  <span class="number">5</span>] <span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>   <span class="number">3</span>  <span class="number">-1</span> [<span class="number">-3</span>  <span class="number">5</span>  <span class="number">3</span>] <span class="number">6</span>  <span class="number">7</span>       <span class="number">5</span></span><br><span class="line"> <span class="number">1</span>   <span class="number">3</span>  <span class="number">-1</span>  <span class="number">-3</span> [<span class="number">5</span>  <span class="number">3</span>  <span class="number">6</span>] <span class="number">7</span>       <span class="number">6</span></span><br><span class="line"> <span class="number">1</span>   <span class="number">3</span>  <span class="number">-1</span>  <span class="number">-3</span>  <span class="number">5</span> [<span class="number">3</span>  <span class="number">6</span>  <span class="number">7</span>]      <span class="number">7</span></span><br></pre></td></tr></table></figure>
 </blockquote>
+<hr>
 <p>这题是典型的滑动窗口问题，理解题目意思以后写起来问题不是很大，具体思路为：</p>
 <blockquote>
 <p>遍历数组，将数据存储在双向队列中，并用 L,R 来标记窗口的左边界和右边界。队列中保存的并不是真的数据，而是该数值对应的数组下标位置，并且数组中的数要从大到小排序。如果当前遍历的数比队尾的值大，则需要弹出队尾值，直到队列重新满足从大到小的要求。刚开始遍历时，L 和 R 都为 0，有一个形成窗口的过程，此过程没有最大值，L 不动，R 向右移。当窗口大小形成时，L 和 R 一起向右移，每次移动时，判断队首的值的数组下标是否在 [L,R] 中，如果不在则需要弹出队首的值，当前窗口的最大值即为队首的数。</p>
@@ -463,6 +464,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/03/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-3/" rel="prev" title="LeetCode每日一题2021.1.2">
+                LeetCode每日一题2021.1.2 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -543,7 +548,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
