@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LeetCode每日一题2021.1.1</title>
+    <url>/2021/01/01/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-1/</url>
+    <content><![CDATA[<h1 id="2021-01-01"><a href="#2021-01-01" class="headerlink" title="2021.01.01"></a>2021.01.01</h1><p><a href="https://leetcode.com/problems/can-place-flowers/"><strong>605、Can Place Flowers [Easy]</strong> </a> </p>
+<blockquote>
+<p>You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.<br>Given an integer array flowerbed containing 0’s and 1’s, where 0 means empty and 1 means not empty, and an integer n, return if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&gt;Input: flowerbed = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>], n = <span class="number">1</span></span><br><span class="line">&gt;Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<p>本题感觉还是比较简单的，一开始卡在对边界条件的处理上，想了很久发现可以直接在开头和结尾都加上0，这样处理的就不用考虑边界条件，任意位置处只要连续出现三个 0 就可以栽上一棵花。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; flowerbed, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        flowerbed.insert(flowerbed.begin(),<span class="number">0</span>);</span><br><span class="line">        flowerbed.push_back(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> len=flowerbed.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(flowerbed[i<span class="number">-1</span>]==<span class="number">0</span>&amp;&amp;flowerbed[i]==<span class="number">0</span>&amp;&amp;flowerbed[i+<span class="number">1</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">                flowerbed[i]=<span class="number">1</span>;</span><br><span class="line">                n--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(n==<span class="number">0</span>)	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode每日一题2021.1.10</title>
     <url>/2021/01/10/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-10/</url>
     <content><![CDATA[<h1 id="2021-01-10"><a href="#2021-01-10" class="headerlink" title="2021.01.10"></a>2021.01.10</h1><p><a href="https://leetcode.com/problems/summary-ranges/"><strong>228. Summary Ranges [Easy]</strong></a> </p>
@@ -21,27 +42,6 @@
 <hr>
 <p>从数组的位置 0 出发，向右遍历。每次遇到相邻元素之间的差值大于 1 时，我们就找到了一个区间。遍历完数组之后，就能得到一系列的区间的列表。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">summaryRanges</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size())res.push_back(to_string(nums[<span class="number">0</span>]));</span><br><span class="line">        <span class="keyword">int</span> f=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;nums.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]!=nums[i<span class="number">-1</span>]+<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(f)res.back()+=<span class="string">&quot;-&gt;&quot;</span>+to_string(nums[i<span class="number">-1</span>]);</span><br><span class="line">                res.push_back(to_string(nums[i]));</span><br><span class="line">                f=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> f=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(f)res.back()+=<span class="string">&quot;-&gt;&quot;</span>+to_string(nums[nums.size()<span class="number">-1</span>]);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode每日一题2021.1.1</title>
-    <url>/2021/01/01/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-1/</url>
-    <content><![CDATA[<h1 id="2021-01-01"><a href="#2021-01-01" class="headerlink" title="2021.01.01"></a>2021.01.01</h1><p><a href="https://leetcode.com/problems/can-place-flowers/"><strong>605、Can Place Flowers [Easy]</strong> </a> </p>
-<blockquote>
-<p>You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in adjacent plots.<br>Given an integer array flowerbed containing 0’s and 1’s, where 0 means empty and 1 means not empty, and an integer n, return if n new flowers can be planted in the flowerbed without violating the no-adjacent-flowers rule.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&gt;Input: flowerbed = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>], n = <span class="number">1</span></span><br><span class="line">&gt;Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<hr>
-<p>本题感觉还是比较简单的，一开始卡在对边界条件的处理上，想了很久发现可以直接在开头和结尾都加上0，这样处理的就不用考虑边界条件，任意位置处只要连续出现三个 0 就可以栽上一棵花。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; flowerbed, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        flowerbed.insert(flowerbed.begin(),<span class="number">0</span>);</span><br><span class="line">        flowerbed.push_back(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> len=flowerbed.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(flowerbed[i<span class="number">-1</span>]==<span class="number">0</span>&amp;&amp;flowerbed[i]==<span class="number">0</span>&amp;&amp;flowerbed[i+<span class="number">1</span>]==<span class="number">0</span>)&#123;</span><br><span class="line">                flowerbed[i]=<span class="number">1</span>;</span><br><span class="line">                n--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(n==<span class="number">0</span>)	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>算法</category>
@@ -113,7 +113,7 @@
       </tags>
   </entry>
   <entry>
-    <title>LeetCode每日一题2021.1.12</title>
+    <title>LeetCode每日一题2021.1.13</title>
     <url>/2021/01/13/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-13/</url>
     <content><![CDATA[<h1 id="2021-01-13"><a href="#2021-01-13" class="headerlink" title="2021.01.13"></a>2021.01.13</h1><p><a href="https://leetcode.com/problems/redundant-connection/"><strong>684. Redundant Connection [Medium]</strong></a> </p>
 <blockquote>
@@ -137,6 +137,33 @@
 <p>如果两个顶点属于相同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间已经连通，因此当前的边导致环出现，为附加的边，将当前的边作为答案返回。</p>
 <p>显然，这道题应该用并查集，代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> *s;</span><br><span class="line">    <span class="keyword">int</span> *weight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">cFind</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[x]&lt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> root=cFind(s[x]);</span><br><span class="line">            s[x]=root;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">wUnion</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> root1=cFind(x),root2=cFind(y);</span><br><span class="line">        <span class="keyword">if</span>(root1==root2)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(weight[root1]&gt;weight[root2])</span><br><span class="line">        &#123;<span class="keyword">int</span> tmp=root1;root1=root2;root2=tmp;&#125;</span><br><span class="line">        s[root2]=root1;</span><br><span class="line">        weight[root1]+=weight[root2];</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">findRedundantConnection</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num=edges.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;ans;</span><br><span class="line">        s=<span class="keyword">new</span> <span class="keyword">int</span>[num+<span class="number">1</span>];</span><br><span class="line">        weight=<span class="keyword">new</span> <span class="keyword">int</span>[num+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)&#123;</span><br><span class="line">            s[i]=<span class="number">-1</span>;</span><br><span class="line">            weight[i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> u=edges[i][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> v=edges[i][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(wUnion(u,v)==<span class="number">0</span>)</span><br><span class="line">                &#123;ans.push_back(u);ans.push_back(v);<span class="keyword">break</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ans.size()==<span class="number">0</span>)</span><br><span class="line">        &#123;ans.push_back(<span class="number">0</span>);ans.push_back(<span class="number">1</span>);&#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode每日一题2021.1.14</title>
+    <url>/2021/01/14/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-14/</url>
+    <content><![CDATA[<h1 id="2021-01-14"><a href="#2021-01-14" class="headerlink" title="2021.01.14"></a>2021.01.14</h1><p><a href="https://leetcode.com/problems/binary-prefix-divisible-by-5/"><strong>1018. Binary Prefix Divisible By 5 [Easy]</strong></a> </p>
+<blockquote>
+<p>Given an array <code>A</code> of <code>0</code>s and <code>1</code>s, consider <code>N_i</code>: the i-th subarray from <code>A[0]</code> to <code>A[i]</code> interpreted as a binary number (from most-significant-bit to least-significant-bit.)</p>
+<p>Return a list of booleans <code>answer</code>, where <code>answer[i]</code> is <code>true</code> if and only if <code>N_i</code> is divisible by 5.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Input: [<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">Output: [<span class="literal">true</span>,<span class="literal">false</span>,<span class="literal">false</span>]</span><br><span class="line">Explanation: </span><br><span class="line">The input numbers in binary are <span class="number">0</span>, <span class="number">01</span>, <span class="number">011</span>; which are <span class="number">0</span>, <span class="number">1</span>, <span class="keyword">and</span> <span class="number">3</span> in base<span class="number">-10.</span>  Only the first number is divisible by <span class="number">5</span>, so answer[<span class="number">0</span>] is <span class="literal">true</span>.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example 2:</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Input: [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line">Output: [<span class="literal">false</span>,<span class="literal">false</span>,<span class="literal">false</span>]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<p>比较简单的一道题，思路就是每次都取当前十进制的个位数和下一个二进制进行运算获得新的值，然后再取新值的个位数判断一下是不是0或者5就行啦，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">prefixesDivBy5</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; ans;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it = A.begin(); it != A.end(); it++)</span><br><span class="line">        &#123;</span><br><span class="line">            temp |= *it;</span><br><span class="line">            ans.push_back(temp%<span class="number">5</span> == <span class="number">0</span>);</span><br><span class="line">            temp = temp &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            temp = temp % <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
 ]]></content>
@@ -289,6 +316,36 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode每日一题2021.1.8</title>
+    <url>/2021/01/08/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-8/</url>
+    <content><![CDATA[<h1 id="2021-01-08"><a href="#2021-01-08" class="headerlink" title="2021.01.08"></a>2021.01.08</h1><p><a href="https://leetcode.com/problems/rotate-array/"><strong>189. Rotate Array [Medium]</strong></a> </p>
+<blockquote>
+<p>Given an array, rotate the array to the right by <em>k</em> steps, where <em>k</em> is non-negative.</p>
+<p><strong>Follow up:</strong></p>
+<ul>
+<li>Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.</li>
+<li>Could you do it in-place with O(1) extra space?</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Input: nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>], k = <span class="number">3</span></span><br><span class="line">Output: [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">Explanation:</span><br><span class="line">rotate <span class="number">1</span> steps to the right: [<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">rotate <span class="number">2</span> steps to the right: [<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">rotate <span class="number">3</span> steps to the right: [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<p>这道题的思路比较有意思，</p>
+</blockquote>
+<blockquote>
+<p>当我们将数组的元素向右移动 <code>k</code> 次后，尾部 <code>k mod n</code> 个元素会移动至数组头部，其余元素向后移动  <code>k mod n</code> 个位置。</p>
+<p>该方法为数组的翻转：我们可以先将所有元素翻转，这样尾部的 <code>k mod n</code> 个元素就被移至数组头部，然后我们再翻转 <code>[0,k mod n-1]</code> 区间的元素和 <code>[k mod n,n-1]</code>  区间的元素即能得到最后的答案。</p>
+</blockquote>
+<p>和算法期末考试的最后一道题思路很类似，等考试全部结束，考虑做一次算法期末考试分析的blog。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = nums[start];</span><br><span class="line">            nums[start++] = nums[end];</span><br><span class="line">            nums[end--] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        k %= n;</span><br><span class="line">        reverse(nums, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">        reverse(nums, <span class="number">0</span>, k - <span class="number">1</span>);</span><br><span class="line">        reverse(nums, k, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode每日一题2021.1.7</title>
     <url>/2021/01/07/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-7/</url>
     <content><![CDATA[<h1 id="2021-01-07"><a href="#2021-01-07" class="headerlink" title="2021.01.07"></a>2021.01.07</h1><p><a href="https://leetcode.com/problems/number-of-provinces/submissions/"><strong>547. Number of Provinces [Medium]</strong></a> </p>
@@ -313,36 +370,6 @@
 </blockquote>
 <p>代码里比较丧心病狂的用了路径压缩和加权合并。。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> *s;</span><br><span class="line">    <span class="keyword">int</span> *weight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">cFind</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[x]&lt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> root=cFind(s[x]);</span><br><span class="line">            s[x]=root;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">wUnion</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> root1=cFind(x),root2=cFind(y);</span><br><span class="line">        <span class="keyword">if</span>(root1==root2)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(weight[root1]&gt;weight[root2])</span><br><span class="line">        &#123;<span class="keyword">int</span> tmp=root1;root1=root2;root2=tmp;&#125;</span><br><span class="line">        s[root2]=root1;</span><br><span class="line">        weight[root1]+=weight[root2];</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findCircleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; isConnected)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num=isConnected.size();</span><br><span class="line">        <span class="keyword">int</span> ans=num;</span><br><span class="line">        s=<span class="keyword">new</span> <span class="keyword">int</span>[num];</span><br><span class="line">        weight=<span class="keyword">new</span> <span class="keyword">int</span>[num];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)&#123;</span><br><span class="line">            s[i]=<span class="number">-1</span>;</span><br><span class="line">            weight[i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;num;j++)</span><br><span class="line">        <span class="keyword">if</span>(isConnected[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> k=wUnion(i,j);</span><br><span class="line">            ans-=k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode每日一题2021.1.8</title>
-    <url>/2021/01/08/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-8/</url>
-    <content><![CDATA[<h1 id="2021-01-08"><a href="#2021-01-08" class="headerlink" title="2021.01.08"></a>2021.01.08</h1><p><a href="https://leetcode.com/problems/rotate-array/"><strong>189. Rotate Array [Medium]</strong></a> </p>
-<blockquote>
-<p>Given an array, rotate the array to the right by <em>k</em> steps, where <em>k</em> is non-negative.</p>
-<p><strong>Follow up:</strong></p>
-<ul>
-<li>Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.</li>
-<li>Could you do it in-place with O(1) extra space?</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Input: nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>], k = <span class="number">3</span></span><br><span class="line">Output: [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">Explanation:</span><br><span class="line">rotate <span class="number">1</span> steps to the right: [<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">rotate <span class="number">2</span> steps to the right: [<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">rotate <span class="number">3</span> steps to the right: [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure>
-<p>这道题的思路比较有意思，</p>
-</blockquote>
-<blockquote>
-<p>当我们将数组的元素向右移动 <code>k</code> 次后，尾部 <code>k mod n</code> 个元素会移动至数组头部，其余元素向后移动  <code>k mod n</code> 个位置。</p>
-<p>该方法为数组的翻转：我们可以先将所有元素翻转，这样尾部的 <code>k mod n</code> 个元素就被移至数组头部，然后我们再翻转 <code>[0,k mod n-1]</code> 区间的元素和 <code>[k mod n,n-1]</code>  区间的元素即能得到最后的答案。</p>
-</blockquote>
-<p>和算法期末考试的最后一道题思路很类似，等考试全部结束，考虑做一次算法期末考试分析的blog。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = nums[start];</span><br><span class="line">            nums[start++] = nums[end];</span><br><span class="line">            nums[end--] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        k %= n;</span><br><span class="line">        reverse(nums, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">        reverse(nums, <span class="number">0</span>, k - <span class="number">1</span>);</span><br><span class="line">        reverse(nums, k, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>算法</category>
