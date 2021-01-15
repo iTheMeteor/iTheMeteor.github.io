@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="2021.01.13684. Redundant Connection [Medium]   In this problem, a tree is an undirected graph that is connected and has no cycles. The given input is a graph that started as a tree with N nodes (with">
+<meta name="description" content="2021.01.15947. Most Stones Removed with Same Row or Column [Medium]   On a 2D plane, we place n stones at some integer coordinate points. Each coordinate point may have at most one stone. A stone can">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode每日一题2021.1.13">
-<meta property="og:url" content="http://example.com/2021/01/13/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-13/index.html">
+<meta property="og:title" content="LeetCode每日一题2021.1.15">
+<meta property="og:url" content="http://example.com/2021/01/15/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-15/index.html">
 <meta property="og:site_name" content="iTheMeteor">
-<meta property="og:description" content="2021.01.13684. Redundant Connection [Medium]   In this problem, a tree is an undirected graph that is connected and has no cycles. The given input is a graph that started as a tree with N nodes (with">
+<meta property="og:description" content="2021.01.15947. Most Stones Removed with Same Row or Column [Medium]   On a 2D plane, we place n stones at some integer coordinate points. Each coordinate point may have at most one stone. A stone can">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-01-13T14:02:12.000Z">
-<meta property="article:modified_time" content="2021-01-14T11:36:48.599Z">
+<meta property="article:published_time" content="2021-01-15T08:24:14.000Z">
+<meta property="article:modified_time" content="2021-01-15T08:30:08.093Z">
 <meta property="article:author" content="iTheMeteor">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="LeetCode">
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2021/01/13/LeetCode每日一题2021-1-13/"/>
+  <link rel="canonical" href="http://example.com/2021/01/15/LeetCode每日一题2021-1-15/"/>
 
 
 
 
 
-  <title>LeetCode每日一题2021.1.13 | iTheMeteor</title>
+  <title>LeetCode每日一题2021.1.15 | iTheMeteor</title>
   
 
 
@@ -288,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/13/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-13/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/15/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-15/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iTheMeteor">
@@ -305,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode每日一题2021.1.13</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode每日一题2021.1.15</h1>
         
 
         <div class="post-meta">
@@ -317,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-13T22:02:12+08:00">
-                2021-01-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-15T16:24:14+08:00">
+                2021-01-15
               </time>
             
 
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  696 字
+                  356 字
                 </span>
               
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -408,28 +408,17 @@
       
 
       
-        <h1 id="2021-01-13"><a href="#2021-01-13" class="headerlink" title="2021.01.13"></a>2021.01.13</h1><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/redundant-connection/"><strong>684. Redundant Connection [Medium]</strong></a> </p>
+        <h1 id="2021-01-15"><a href="#2021-01-15" class="headerlink" title="2021.01.15"></a>2021.01.15</h1><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/"><strong>947. Most Stones Removed with Same Row or Column [Medium]</strong></a> </p>
 <blockquote>
-<p>In this problem, a tree is an <strong>undirected</strong> graph that is connected and has no cycles.</p>
-<p>The given input is a graph that started as a tree with N nodes (with distinct values 1, 2, …, N), with one additional edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.</p>
-<p>The resulting graph is given as a 2D-array of <code>edges</code>. Each element of <code>edges</code> is a pair <code>[u, v]</code> with <code>u &lt; v</code>, that represents an <strong>undirected</strong> edge connecting nodes <code>u</code> and <code>v</code>.</p>
-<p>Return an edge that can be removed so that the resulting graph is a tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array. The answer edge <code>[u, v]</code> should be in the same format, with <code>u &lt; v</code>.</p>
+<p>On a 2D plane, we place <code>n</code> stones at some integer coordinate points. Each coordinate point may have at most one stone.</p>
+<p>A stone can be removed if it shares either <strong>the same row or the same column</strong> as another stone that has not been removed.</p>
+<p>Given an array <code>stones</code> of length <code>n</code> where <code>stones[i] = [xi, yi]</code> represents the location of the <code>ith</code> stone, return <em>the largest possible number of stones that can be removed</em>.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">3</span>], [<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">Output: [<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">Explanation: The given undirected graph will be like <span class="keyword">this</span>:</span><br><span class="line">  <span class="number">1</span></span><br><span class="line"> / \</span><br><span class="line"><span class="number">2</span> - <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>Example 2:</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">2</span>,<span class="number">3</span>], [<span class="number">3</span>,<span class="number">4</span>], [<span class="number">1</span>,<span class="number">4</span>], [<span class="number">1</span>,<span class="number">5</span>]]</span><br><span class="line">Output: [<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">Explanation: The given undirected graph will be like <span class="keyword">this</span>:</span><br><span class="line"><span class="number">5</span> - <span class="number">1</span> - <span class="number">2</span></span><br><span class="line">    |   |</span><br><span class="line">    <span class="number">4</span> - <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Input: stones = [[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">2</span>]]</span><br><span class="line">Output: <span class="number">5</span></span><br><span class="line">Explanation: One way to remove <span class="number">5</span> stones is as follows:</span><br><span class="line"><span class="number">1.</span> Remove stone [<span class="number">2</span>,<span class="number">2</span>] because it shares the same row as [<span class="number">2</span>,<span class="number">1</span>].</span><br><span class="line"><span class="number">2.</span> Remove stone [<span class="number">2</span>,<span class="number">1</span>] because it shares the same column as [<span class="number">0</span>,<span class="number">1</span>].</span><br><span class="line"><span class="number">3.</span> Remove stone [<span class="number">1</span>,<span class="number">2</span>] because it shares the same row as [<span class="number">1</span>,<span class="number">0</span>].</span><br><span class="line"><span class="number">4.</span> Remove stone [<span class="number">1</span>,<span class="number">0</span>] because it shares the same column as [<span class="number">0</span>,<span class="number">0</span>].</span><br><span class="line"><span class="number">5.</span> Remove stone [<span class="number">0</span>,<span class="number">1</span>] because it shares the same row as [<span class="number">0</span>,<span class="number">0</span>].</span><br><span class="line">Stone [<span class="number">0</span>,<span class="number">0</span>] cannot be removed since it does <span class="keyword">not</span> share a row/column with another stone still on the plane.</span><br></pre></td></tr></table></figure>
 </blockquote>
 <hr>
-<p>在一棵树中，边的数量比节点的数量少 1。如果一棵树有 N 个节点，则这棵树有 N-1 条边。这道题中的图在树的基础上多了一条附加的边，因此边的数量也是 N。</p>
-<p>树是一个连通且无环的无向图，在树中多了一条附加的边之后就会出现环，因此附加的边即为导致环出现的边。</p>
-<p>可以通过并查集寻找附加的边。初始时，每个节点都属于不同的连通分量。遍历每一条边，判断这条边连接的两个顶点是否属于相同的连通分量。</p>
-<p>如果两个顶点属于不同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间不连通，因此当前的边不会导致环出现，合并这两个顶点的连通分量。</p>
-<p>如果两个顶点属于相同的连通分量，则说明在遍历到当前的边之前，这两个顶点之间已经连通，因此当前的边导致环出现，为附加的边，将当前的边作为答案返回。</p>
-<p>显然，这道题应该用并查集，代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> *s;</span><br><span class="line">    <span class="keyword">int</span> *weight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">cFind</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[x]&lt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> root=cFind(s[x]);</span><br><span class="line">            s[x]=root;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">wUnion</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> root1=cFind(x),root2=cFind(y);</span><br><span class="line">        <span class="keyword">if</span>(root1==root2)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(weight[root1]&gt;weight[root2])</span><br><span class="line">        &#123;<span class="keyword">int</span> tmp=root1;root1=root2;root2=tmp;&#125;</span><br><span class="line">        s[root2]=root1;</span><br><span class="line">        weight[root1]+=weight[root2];</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">findRedundantConnection</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; edges)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num=edges.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;ans;</span><br><span class="line">        s=<span class="keyword">new</span> <span class="keyword">int</span>[num+<span class="number">1</span>];</span><br><span class="line">        weight=<span class="keyword">new</span> <span class="keyword">int</span>[num+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)&#123;</span><br><span class="line">            s[i]=<span class="number">-1</span>;</span><br><span class="line">            weight[i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> u=edges[i][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> v=edges[i][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(wUnion(u,v)==<span class="number">0</span>)</span><br><span class="line">                &#123;ans.push_back(u);ans.push_back(v);<span class="keyword">break</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ans.size()==<span class="number">0</span>)</span><br><span class="line">        &#123;ans.push_back(<span class="number">0</span>);ans.push_back(<span class="number">1</span>);&#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个题思路还是比较清晰的，将处于同一行或同一列的归并为一类，每一类都可以按照一定方式消除剩下一个，代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> parent[<span class="number">20003</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(parent[index]!=index)</span><br><span class="line">        &#123;</span><br><span class="line">            parent[index]=find(parent[index]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> parent[index];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Union</span><span class="params">(<span class="keyword">int</span> index1,<span class="keyword">int</span> index2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        parent[find(index1)]=find(index2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">removeStones</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; stones)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20003</span>;i++) parent[i]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;stone:stones)</span><br><span class="line">        &#123;</span><br><span class="line">            Union(stone[<span class="number">0</span>],stone[<span class="number">1</span>]+<span class="number">10000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;stone:stones)</span><br><span class="line">        &#123;</span><br><span class="line">            ans.insert(find(stone[<span class="number">0</span>]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stones.size()-ans.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -464,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/01/12/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-12/" rel="next" title="LeetCode每日一题2021.1.12">
-                <i class="fa fa-chevron-left"></i> LeetCode每日一题2021.1.12
+              <a href="/2021/01/14/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-14/" rel="next" title="LeetCode每日一题2021.1.14">
+                <i class="fa fa-chevron-left"></i> LeetCode每日一题2021.1.14
               </a>
             
           </div>
@@ -473,10 +462,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/01/14/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-14/" rel="prev" title="LeetCode每日一题2021.1.14">
-                LeetCode每日一题2021.1.14 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -626,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-01-13"><span class="nav-number">1.</span> <span class="nav-text">2021.01.13</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-01-15"><span class="nav-number">1.</span> <span class="nav-text">2021.01.15</span></a></li></ol></div>
             
 
           </div>
