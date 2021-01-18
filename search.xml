@@ -250,6 +250,57 @@
       </tags>
   </entry>
   <entry>
+    <title>LeetCode每日一题2021.1.17</title>
+    <url>/2021/01/17/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-17/</url>
+    <content><![CDATA[<h1 id="2021-01-17"><a href="#2021-01-17" class="headerlink" title="2021.01.17"></a>2021.01.17</h1><p><a href="https://leetcode.com/problems/check-if-it-is-a-straight-line/"><strong>1232. Check If It Is a Straight Line [Medium]</strong></a> </p>
+<blockquote>
+<p>You are given an array <code>coordinates</code>, <code>coordinates[i] = [x, y]</code>, where <code>[x, y]</code> represents the coordinate of a point. Check if these points make a straight line in the XY plane.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2019/10/15/untitled-diagram-2.jpg" alt="img"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Input: coordinates = [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">4</span>,<span class="number">5</span>],[<span class="number">5</span>,<span class="number">6</span>],[<span class="number">6</span>,<span class="number">7</span>]]</span><br><span class="line">Output: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<p>很简单的一道题，用直线的数学表达式很容易就能写出答案。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//由斜率公式得</span></span><br><span class="line"><span class="comment">//(y1-y0)/(x1-x0)=(yi-y0)/(xi-x0)</span></span><br><span class="line"><span class="comment">//防止除0，变换成相乘的形式</span></span><br><span class="line"><span class="comment">//(y1-y0)*(xi-x0)==(x1-x0)*(yi-y0)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkStraightLine</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;c.size();i++)</span><br><span class="line">            <span class="keyword">if</span>((c[<span class="number">1</span>][<span class="number">1</span>]-c[<span class="number">0</span>][<span class="number">1</span>])*(c[i][<span class="number">0</span>]-c[<span class="number">0</span>][<span class="number">0</span>])!=(c[i][<span class="number">1</span>]-c[<span class="number">0</span>][<span class="number">1</span>])*(c[<span class="number">1</span>][<span class="number">0</span>]-c[<span class="number">0</span>][<span class="number">0</span>]))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode每日一题2021.1.18</title>
+    <url>/2021/01/18/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-18/</url>
+    <content><![CDATA[<h1 id="2021-01-18"><a href="#2021-01-18" class="headerlink" title="2021.01.18"></a>2021.01.18</h1><p><a href="https://leetcode.com/problems/accounts-merge/"><strong>721. Accounts Merge [Medium]</strong></a> </p>
+<blockquote>
+<p>Given a list <code>accounts</code>, each element <code>accounts[i]</code> is a list of strings, where the first element <code>accounts[i][0]</code> is a <em>name</em>, and the rest of the elements are <em>emails</em> representing emails of the account.</p>
+<p>Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some email that is common to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.</p>
+<p>After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails <strong>in sorted order</strong>. The accounts themselves can be returned in any order.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Input: </span><br><span class="line">accounts &#x3D; [[&quot;John&quot;, &quot;johnsmith@mail.com&quot;, &quot;john00@mail.com&quot;], [&quot;John&quot;, &quot;johnnybravo@mail.com&quot;], [&quot;John&quot;, &quot;johnsmith@mail.com&quot;, &quot;john_newyork@mail.com&quot;], [&quot;Mary&quot;, &quot;mary@mail.com&quot;]]</span><br><span class="line">Output: [[&quot;John&quot;, &#39;john00@mail.com&#39;, &#39;john_newyork@mail.com&#39;, &#39;johnsmith@mail.com&#39;],  [&quot;John&quot;, &quot;johnnybravo@mail.com&quot;], [&quot;Mary&quot;, &quot;mary@mail.com&quot;]]</span><br><span class="line">Explanation: </span><br><span class="line">The first and third John&#39;s are the same person as they have the common email &quot;johnsmith@mail.com&quot;.</span><br><span class="line">The second John and Mary are different people as none of their email addresses are used by other accounts.</span><br><span class="line">We could return these lists in any order, for example the answer [[&#39;Mary&#39;, &#39;mary@mail.com&#39;], [&#39;John&#39;, &#39;johnnybravo@mail.com&#39;], </span><br><span class="line">[&#39;John&#39;, &#39;john00@mail.com&#39;, &#39;john_newyork@mail.com&#39;, &#39;johnsmith@mail.com&#39;]] would still be accepted.</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<p>这道题有点像“查并集”，我们需要将所有出现共同邮件地址的所有账户的邮箱地址合并到一个账户的名下(比如<code>“134@mail.com”</code>出现在A，B，C账户的地址中，我们可需要将A，B，C的账户名下的邮箱地址都合并到A的名下)。</p>
+<p>第一步：我们使用hash表统计每一个邮箱地址出现的账户（比如<code>“134@mail.com”</code>出现在A，B，C账户的地址中，我们关联[<code>“134@mail.com”</code>, A,B,C]）。<br>第二步：采取深度优先的策略，比如我们先访问账户A，记录它的所有邮箱地址，记录到<code>“134@mail.com”</code>时，查找hash表发现它还出现B，C的账户中，这时我们取访问账户B，C。这样就能达到合并A，B，C的账户到A的名下的作用。当然在此过程中可能会出现重复记录邮箱地址，我们使用set中元素的唯一性、有序性进行去重，同时还进行了合并。</p>
+<p>分析到这个地方，是不是又会想到一个问题，图的“连通分量”，我们把各个账户看作为一个城市，邮箱地址看作为城市中的连接路径，我们需要找到起始城市（账户A）能到达的所有路径。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; result;</span><br><span class="line">	<span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>, <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;&gt; hashMap;<span class="comment">//hashMap[emailA]记录所有账户中含有emailA邮箱地址的下标</span></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; accountsMerge(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt;&amp; accounts) &#123;</span><br><span class="line">		<span class="keyword">int</span> accountsSize = accounts.size();</span><br><span class="line">        <span class="comment">//第一步：使用hash表统计每一个邮箱地址出现的账户（比如“134@mail.com”出现在A，B，C账户的地址中，我们关联[“134@mail.com”, A,B,C]）</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index &lt; accountsSize; ++index) &#123;</span><br><span class="line">			<span class="keyword">int</span> accSize = accounts[index].size();</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; accSize; ++j) &#123;</span><br><span class="line">				hashMap[accounts[index][j]].push_back(index);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">visited</span><span class="params">(accountsSize, <span class="literal">false</span>)</span></span>;<span class="comment">//visited[index]记录accounts[index]是否访问过</span></span><br><span class="line">        <span class="comment">//第二步：开始进行深度优先搜索</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> nowIndex = <span class="number">0</span>; nowIndex &lt; accountsSize; ++nowIndex) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!visited[nowIndex]) &#123;<span class="comment">//nowIndex是起点账户</span></span><br><span class="line">				<span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; tempRes;<span class="comment">//合并到它名下的所有邮箱地址</span></span><br><span class="line">				dfs(accounts, visited, tempRes, nowIndex);<span class="comment">//进行搜索</span></span><br><span class="line">                <span class="comment">//然后按照格式新建帐户：每个帐户的第一个元素是名称，其余元素是按顺序排列的邮箱地址</span></span><br><span class="line">				<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; tempVec = &#123; accounts[nowIndex][<span class="number">0</span>] &#125;;<span class="comment">//账户名称</span></span><br><span class="line">                <span class="comment">//新账户下的所有邮箱地址</span></span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">auto</span> &amp;email : tempRes) &#123;</span><br><span class="line">					tempVec.push_back(email);</span><br><span class="line">				&#125;</span><br><span class="line">				result.push_back(tempVec);<span class="comment">//放到大集合中</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//深度优先搜索和accounts[nowIndex]有公共邮箱地址并且没有访问过的账户，并且统计它们的邮箱地址到tempRes</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt;&amp; accounts, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; &amp;visited, <span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; &amp;tempRes, <span class="keyword">int</span> nowIndex)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (visited[nowIndex]) &#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		visited[nowIndex] = <span class="literal">true</span>;<span class="comment">//标记访问</span></span><br><span class="line">		<span class="keyword">int</span> nowAccSize = accounts[nowIndex].size();</span><br><span class="line">        <span class="comment">//第一层for循环，访问的账户accounts[nowIndex]下的所有邮箱地址</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">1</span>; index &lt; nowAccSize; ++index) &#123;</span><br><span class="line">			tempRes.insert(accounts[nowIndex][index]);<span class="comment">//放入集合（集合自动去重、排序）</span></span><br><span class="line">            <span class="comment">//第二层for循环，访问所有出现过邮箱地址accounts[nowIndex][index]的未访问的账户</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">auto</span> &amp;item : hashMap[accounts[nowIndex][index]]) &#123;</span><br><span class="line">				<span class="keyword">if</span> (visited[item] == <span class="literal">false</span>) &#123;</span><br><span class="line">					dfs(accounts, visited, tempRes, item);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode每日一题2021.1.2</title>
     <url>/2021/01/02/LeetCode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982021-1-2/</url>
     <content><![CDATA[<h1 id="2021-01-02"><a href="#2021-01-02" class="headerlink" title="2021.01.02"></a>2021.01.02</h1><p><a href="https://leetcode.com/problems/sliding-window-maximum/"><strong>239. Sliding Window Maximum [Hard]</strong></a> </p>
@@ -480,143 +531,6 @@
       </tags>
   </entry>
   <entry>
-    <title>算法系列之STL(三)</title>
-    <url>/2020/09/10/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8BSTL(%E4%B8%89)/</url>
-    <content><![CDATA[<blockquote>
-<p>STL提供了一些常见的算法，如排序和搜索等。这些算法与数据结构的实现进行了分离。</p>
-</blockquote>
-<a id="more"></a>
-
-
-
-<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>STL算法部分主要由头文件<code>&lt;algorithm&gt;</code>,<code>&lt;numeric&gt;</code>,<code>&lt;functional&gt;</code>组成。要使用 STL中的算法函数必须包含头文件<code>&lt;algorithm&gt;</code>，对于数值算法须包含<code>&lt;numeric&gt;</code>，<code>&lt;functional&gt;</code>中则定义了一些模板类，用来声明函数对象。</p>
-<p> STL中算法大致分为四类：</p>
-<ol>
-<li>非可变序列算法：指不直接修改其所操作的容器内容的算法。</li>
-<li>可变序列算法：指可以修改它们所操作的容器内容的算法。</li>
-<li>排序算法：包括对序列进行排序和合并的算法、搜索算法以及有序序列上的集合操作。</li>
-<li>数值算法：对容器内容进行数值计算。</li>
-</ol>
-<h2 id="排序函数"><a href="#排序函数" class="headerlink" title="排序函数"></a>排序函数</h2><table>
-<thead>
-<tr>
-<th align="center">函数名</th>
-<th align="center">用法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">sort (first, last)</td>
-<td align="center">对容器或普通数组中 [first, last) 范围内的元素进行排序，默认进行升序排序。</td>
-</tr>
-<tr>
-<td align="center">stable_sort (first, last)</td>
-<td align="center">和 sort() 函数功能相似，不同之处在于，对于 [first, last) 范围内值相同的元素，该函数不会改变它们的相对位置。</td>
-</tr>
-<tr>
-<td align="center">partial_sort (first, middle, last)</td>
-<td align="center">从 [first,last) 范围内，筛选出 middle-first 个最小的元素并排序存放在 [first，middle) 区间中。</td>
-</tr>
-<tr>
-<td align="center">is_sorted (first, last)</td>
-<td align="center">检测 [first, last) 范围内是否已经排好序，默认检测是否按升序排序。</td>
-</tr>
-<tr>
-<td align="center">void nth_element (first, n_th, last)</td>
-<td align="center">找到 [first, last) 范围内按照排序规则（默认按照升序排序）应该位于第 n_th 个位置处的元素，并将其放置到此位置。同时使该位置左侧的所有元素都比其存放的元素小，该位置右侧的所有元素都比其存放的元素大。</td>
-</tr>
-</tbody></table>
-<p>对于表中罗列的这些函数，本文会选取一部分常用的函数进行介绍。</p>
-<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><p>C++ STL 标准库中的 sort() 函数，本质就是一个模板函数。该函数专门用来对容器或普通数组中指定范围内的元素进行排序，排序规则默认以元素值的大小做升序排序，除此之外我们也可以选择标准库提供的其它排序规则（比如<code>std::greater&lt;T&gt;</code>降序排序规则），也可以自定义排序规则。</p>
-<blockquote>
-<p>sort() 函数是基于快速排序实现的</p>
-</blockquote>
-<p>注意：</p>
-<ol>
-<li>容器支持的迭代器类型必须为随机访问迭代器。这意味着，sort() 只对 array、vector、deque 这 3 个容器提供支持。</li>
-<li>如果对容器中指定区域的元素做默认升序排序，则元素类型必须支持<code>&lt;</code>小于运算符；同样，如果选用标准库提供的其它排序规则，元素类型也必须支持该规则底层实现所用的比较运算符；</li>
-<li>sort() 函数在实现排序时，需要交换容器中元素的存储位置。这种情况下，如果容器中存储的是自定义的类对象，则该类的内部必须提供移动构造函数和移动赋值运算符。</li>
-<li>另外还需要注意的一点是，对于指定区域内值相等的元素，sort() 函数无法保证它们的相对位置不发生改变。</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//对 [first, last) 区域内的元素做默认的升序排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span> <span class="params">(RandomAccessIterator first, RandomAccessIterator last)</span></span>;</span><br><span class="line"><span class="comment">//按照指定的 cmp 排序规则，对 [first, last) 区域内的元素进行排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span> <span class="params">(RandomAccessIterator first, RandomAccessIterator last, Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>其中，<code>first</code> 和 <code>last </code>都为随机访问迭代器，它们的组合<code>[first, last)</code>用来指定要排序的目标区域</p>
-<p><code>cmp</code> 可以是 C++ STL 标准库提供的排序规则（比如 <code>std::greater&lt;T&gt;</code>），也可以是自定义的排序规则，如：</p>
-<p>使用函数对象自定义排序规则；重载关系运算符实现自定义排序；或者直接定义一个具有 2 个参数并返回 bool 类型值的函数作为排序规则。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以普通函数的方式实现自定义排序规则</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mycmp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (i &lt; j);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以函数对象的方式实现自定义排序规则</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">mycmp2</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span> <span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (i &lt; j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="stable-sort"><a href="#stable-sort" class="headerlink" title="stable_sort()"></a>stable_sort()</h3><p><code>stable_sort()</code> 函数可以看作是 <code>sort()</code> 函数在功能方面的升级版。换句话说，<code>stable_sort()</code> 和 <code>sort()</code> 具有相同的使用场景，就连语法格式也是相同的，只不过<code>stable_sort()</code>在功能上除了可以实现排序，还可以保证不改变相等元素的相对位置。</p>
-<hr>
-<h3 id="partial-sort"><a href="#partial-sort" class="headerlink" title="partial_sort()"></a>partial_sort()</h3><p>partial_sort() 函数有 2 种用法，其语法格式分别为：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//按照默认的升序排序规则，对 [first, last) 范围的数据进行筛选并排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">partial_sort</span> <span class="params">(RandomAccessIterator first,RandomAccessIterator middle,RandomAccessIterator last)</span></span>;</span><br><span class="line"><span class="comment">//按照 cmp 排序规则，对 [first, last) 范围的数据进行筛选并排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">partial_sort</span> <span class="params">(RandomAccessIterator first,RandomAccessIterator middle,</span></span></span><br><span class="line"><span class="function"><span class="params">                   RandomAccessIterator last,Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>其中，<code>first</code>、<code>middle</code> 和 <code>last</code> 都是随机访问迭代器，<code>cmp</code> 参数用于自定义排序规则。</p>
-<p><code>partial_sort()</code> 函数会以交换元素存储位置的方式实现部分排序的。具体来说，<code>partial_sort()</code> 会将 <code>[first, last)</code> 范围内最小（或最大）的 <code>middle-first </code>个元素移动到 <code>[first, middle)</code> 区域中，并对这部分元素做升序（或降序）排序。</p>
-<p>代码演示如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mycmp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (i &gt; j);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myvector&#123; <span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">7</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以默认的升序排序作为排序规则,将 myvector 中最小的 4 个元素移动到开头位置并排好序</span></span><br><span class="line"><span class="built_in">std</span>::partial_sort(myvector.begin(), myvector.begin() + <span class="number">4</span>, myvector.end());<span class="comment">//1 2 3 4 5 6 9 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 以指定的 mycmp 作为排序规则，将 myvector 中最大的 4 个元素移动到开头位置并排好序</span></span><br><span class="line"><span class="built_in">std</span>::partial_sort(myvector.begin(), myvector.begin() + <span class="number">4</span>, myvector.end(), mycmp());<span class="comment">//9 7 6 5 1 2 3 4</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="is-sorted"><a href="#is-sorted" class="headerlink" title="is_sorted()"></a>is_sorted()</h3><p>is_sorted() 函数有 2 种语法格式，分别是：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判断 [first, last) 区域内的数据是否符合 std::less&lt;T&gt; 排序规则，即是否为升序序列</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_sorted</span> <span class="params">(ForwardIterator first, ForwardIterator last)</span></span>;</span><br><span class="line"><span class="comment">//判断 [first, last) 区域内的数据是否符合 cmp 排序规则  </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_sorted</span> <span class="params">(ForwardIterator first, ForwardIterator last, Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>其中，<code>first</code> 和 <code>last</code> 都为正向迭代器（这意味着该函数适用于大部分容器），<code>[first, last) </code>用于指定要检测的序列；<code>cmp</code> 用于指定自定义的排序规则。</p>
-<p>该函数会返回一个<code> bool</code> 类型值，即如果<code> [first, last)</code> 范围内的序列符合我们指定的排序规则，则返回 true；反之，函数返回 false。值得一提得是，如果 <code>[first, last)</code> 指定范围内只有 1 个元素，则该函数始终返回 true。</p>
-<hr>
-<h3 id="nth-element"><a href="#nth-element" class="headerlink" title="nth_element()"></a>nth_element()</h3><p>在有序序列中，我们可以称第 n 个元素为整个序列中“第 n 大”的元素。</p>
-<p>简单的理解 nth_element() 函数的功能，当采用默认的升序排序规则（std::less<T>）时，该函数可以从某个序列中找到第 n 小的元素 K，并将 K 移动到序列中第 n 的位置处。不仅如此，整个序列经过 nth_element() 函数处理后，所有位于 K 之前的元素都比 K 小，所有位于 K 之后的元素都比 K 大。</p>
-<p>nth_element() 函数有以下 2 种语法格式：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//排序规则采用默认的升序排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">nth_element</span> <span class="params">(RandomAccessIterator first,RandomAccessIterator nth,RandomAccessIterator last)</span></span>;</span><br><span class="line"><span class="comment">//排序规则为自定义的 cmp 排序规则</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">nth_element</span> <span class="params">(RandomAccessIterator first,RandomAccessIterator nth,</span></span></span><br><span class="line"><span class="function"><span class="params">                  RandomAccessIterator last,Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>其中，各个参数的含义如下：</p>
-<p>first 和 last：都是随机访问迭代器，[first, last) 用于指定该函数的作用范围（即要处理哪些数据）；</p>
-<p>nth：也是随机访问迭代器，其功能是令函数查找“第 nth 大”的元素，并将其移动到 nth 指向的位置；</p>
-<p>comp：用于自定义排序规则。</p>
-<p>代码演示如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mycmp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (i &gt; j);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myvector&#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//默认的升序排序作为排序规则</span></span><br><span class="line">	<span class="built_in">std</span>::nth_element(myvector.begin(), myvector.begin()+<span class="number">2</span>, myvector.end());<span class="comment">//1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义的 mycmp 降序排序作为排序规则</span></span><br><span class="line">    <span class="built_in">std</span>::nth_element(myvector.begin(), myvector.begin() + <span class="number">3</span>, myvector.end(),mycmp);<span class="comment">//5 4 3 2 1</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="合并算法"><a href="#合并算法" class="headerlink" title="合并算法"></a>合并算法</h2><h3 id="merge"><a href="#merge" class="headerlink" title="merge()"></a>merge()</h3><p>merge() 函数用于将 2 个有序序列合并为 1 个有序序列，前提是这 2 个有序序列的排序规则相同（要么都是升序，要么都是降序）。并且最终借助该函数获得的新有序序列，其排序规则也和这 2 个有序序列相同。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以默认的升序排序作为排序规则</span></span><br><span class="line"><span class="function">OutputIterator <span class="title">merge</span> <span class="params">(InputIterator1 first1, InputIterator1 last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                      InputIterator2 first2, InputIterator2 last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                      OutputIterator result)</span></span>;</span><br><span class="line"><span class="comment">//以自定义的 comp 规则作为排序规则</span></span><br><span class="line"><span class="function">OutputIterator <span class="title">merge</span> <span class="params">(InputIterator1 first1, InputIterator1 last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                      InputIterator2 first2, InputIterator2 last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                      OutputIterator result, Compare comp)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>first1、last1、first2 以及 last2 都为输入迭代器，[first1, last1) 和 [first2, last2) 各用来指定一个有序序列；result 为输出迭代器，用于为最终生成的新有序序列指定存储位置；comp 用于自定义排序规则。同时，该函数会返回一个输出迭代器，其指向的是新有序序列中最后一个元素之后的位置。</p>
-<hr>
-<h3 id="inplace-merge"><a href="#inplace-merge" class="headerlink" title="inplace_merge()"></a>inplace_merge()</h3><p>当 2 个有序序列存储在同一个数组或容器中时，如果想将它们合并为 1 个有序序列，除了使用 merge() 函数，更推荐使用 inplace_merge() 函数。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认采用升序的排序规则</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inplace_merge</span> <span class="params">(BidirectionalIterator first, BidirectionalIterator middle,</span></span></span><br><span class="line"><span class="function"><span class="params">                    BidirectionalIterator last)</span></span>;</span><br><span class="line"><span class="comment">//采用自定义的 comp 排序规则</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inplace_merge</span> <span class="params">(BidirectionalIterator first, BidirectionalIterator middle,</span></span></span><br><span class="line"><span class="function"><span class="params">                    BidirectionalIterator last, Compare comp)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>其中，first、middle 和 last 都为双向迭代器，[first, middle) 和 [middle, last) 各表示一个有序序列。</p>
-<h2 id="查找函数"><a href="#查找函数" class="headerlink" title="查找函数"></a>查找函数</h2><h3 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h3><p>find() 函数用于在指定范围内查找和目标元素值相等的第一个元素。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">InputIterator <span class="title">find</span> <span class="params">(InputIterator first, InputIterator last, <span class="keyword">const</span> T&amp; val)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><code>first</code> 和 <code>last </code>为输入迭代器，<code>[first, last)</code> 用于指定该函数的查找范围；<code>val </code>为要查找的目标元素。</p>
-<p>该函数会返回一个输入迭代器，当 find() 函数查找成功时，其指向的是在 <code>[first, last) </code>区域内查找到的第一个目标元素；如果查找失败，则该迭代器的指向和 <code>last</code> 相同。</p>
-<hr>
-<h3 id="find-end"><a href="#find-end" class="headerlink" title="find_end()"></a>find_end()</h3><p>ind_end() 函数定义在<code>&lt;algorithm&gt;</code>头文件中，常用于在序列 A 中查找序列 B 最后一次出现的位置。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查找序列 [first1, last1) 中最后一个子序列 [first2, last2)</span></span><br><span class="line"><span class="function">ForwardIterator <span class="title">find_end</span> <span class="params">(ForwardIterator first1, ForwardIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                          ForwardIterator first2, ForwardIterator last2)</span></span>;</span><br><span class="line"><span class="comment">//查找序列 [first2, last2) 中，和 [first2, last2) 序列满足 pred 规则的最后一个子序列</span></span><br><span class="line"><span class="function">ForwardIterator <span class="title">find_end</span> <span class="params">(ForwardIterator first1, ForwardIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                          ForwardIterator first2, ForwardIterator last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                          BinaryPredicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>find_end() 函数会返回一个正向迭代器，当函数查找成功时，该迭代器指向查找到的子序列中的第一个元素；反之，如果查找失败，则该迭代器的指向和<code> last1</code> 迭代器相同。</p>
-<hr>
-<h3 id="find-first-of"><a href="#find-first-of" class="headerlink" title="find_first_of()"></a>find_first_of()</h3><p>find_first_of() 函数实现了在 A 序列中查找和 B 序列中任意元素相匹配的第一个元素。 </p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以判断两者相等作为匹配规则</span></span><br><span class="line"><span class="function">InputIterator <span class="title">find_first_of</span> <span class="params">(InputIterator first1, InputIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                             ForwardIterator first2, ForwardIterator last2)</span></span>;</span><br><span class="line"><span class="comment">//以 pred 作为匹配规则</span></span><br><span class="line"><span class="function">InputIterator <span class="title">find_first_of</span> <span class="params">(InputIterator first1, InputIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                             ForwardIterator first2, ForwardIterator last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                             BinaryPredicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h3><p>search() 函数定的功能恰好和 find_end() 函数相反，用于在序列 A 中查找序列 B 第一次出现的位置。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查找 [first1, last1) 范围内第一个 [first2, last2) 子序列</span></span><br><span class="line"><span class="function">ForwardIterator <span class="title">search</span> <span class="params">(ForwardIterator first1, ForwardIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                        ForwardIterator first2, ForwardIterator last2)</span></span>;</span><br><span class="line"><span class="comment">//查找 [first1, last1) 范围内，和 [first2, last2) 序列满足 pred 规则的第一个子序列</span></span><br><span class="line"><span class="function">ForwardIterator <span class="title">search</span> <span class="params">(ForwardIterator first1, ForwardIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                        ForwardIterator first2, ForwardIterator last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                        BinaryPredicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h2><h3 id="partition"><a href="#partition" class="headerlink" title="partition()"></a>partition()</h3><p>partition 可直译为“分组”，partition() 函数可根据用户自定义的筛选规则，重新排列指定区域内存储的数据，使其分为 2 组，第一组为符合筛选条件的数据，另一组为不符合筛选条件的数据。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ForwardIterator <span class="title">partition</span> <span class="params">(ForwardIterator first,ForwardIterator last,</span></span></span><br><span class="line"><span class="function"><span class="params">                           UnaryPredicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>其中，<code>first</code> 和 <code>last</code> 都为正向迭代器，其组合 <code>[first, last)</code> 用于指定该函数的作用范围；<code>pred</code> 用于指定筛选规则。</p>
-<p>partition() 函数还会返回一个正向迭代器，其指向的是两部分数据的分界位置，更确切地说，指向的是第二组数据中的第 1 个元素。</p>
-<p>代码演示如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mycmp</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123; <span class="keyword">return</span> (i % <span class="number">2</span>) == <span class="number">0</span>; &#125;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myvector&#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myvector&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator bound;</span><br><span class="line"></span><br><span class="line">bound = <span class="built_in">std</span>::partition(myvector.begin(), myvector.end(), mycmp());</span><br><span class="line"><span class="comment">//输出结果为8 2 6 4 5 3 7 1 9, bound = 5</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="stable-partition"><a href="#stable-partition" class="headerlink" title="stable_partition()"></a>stable_partition()</h3><p>partition() 函数只负责对指定区域内的数据进行分组，并不保证各组中元素的相对位置不发生改变。而如果想在分组的同时保证不改变各组中元素的相对位置，可以使用 stable_partition() 函数。</p>
-<p>换句话说，<code>stable_partition()</code> 和 <code>partition(()</code> 具有相同的使用场景，就连语法格式也是相同的，只不过<code>stable_partition()</code>在功能上除了可以实现排序，还可以保证不改变相等元素的相对位置。</p>
-<h2 id="翻转函数"><a href="#翻转函数" class="headerlink" title="翻转函数"></a>翻转函数</h2><h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h3><p>reverse函数功能是逆序（或反转），多用于字符串、数组、容器。</p>
-<p>reverse函数用于反转在<code>[first,last)</code>范围内的顺序（包括<code>first</code>指向的元素，不包括<code>last</code>指向的元素）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> str=<span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">reverse(str.begin(),str.end());<span class="comment">//str结果为dlrow olleh</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = &#123;<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">reverse(v.begin(),v.end());<span class="comment">//容器v的值变为1,2,3,4,5</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://c.biancheng.net/stl/" title="STL教程：C++ STL快速入门">STL教程：C++ STL快速入门</a> , <strong>[ C语言中文网 ]</strong></p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>STL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>算法系列之STL(一)</title>
     <url>/2020/09/09/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8BSTL(%E4%B8%80)/</url>
     <content><![CDATA[<blockquote>
@@ -805,6 +719,143 @@
 <blockquote>
 <p>和 queue 一样，priority_queue 也没有迭代器，因此访问元素的唯一方式是遍历容器，通过不断移除访问过的元素，去访问下一个元素。</p>
 </blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://c.biancheng.net/stl/" title="STL教程：C++ STL快速入门">STL教程：C++ STL快速入门</a> , <strong>[ C语言中文网 ]</strong></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>STL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法系列之STL(三)</title>
+    <url>/2020/09/10/%E7%AE%97%E6%B3%95%E7%B3%BB%E5%88%97%E4%B9%8BSTL(%E4%B8%89)/</url>
+    <content><![CDATA[<blockquote>
+<p>STL提供了一些常见的算法，如排序和搜索等。这些算法与数据结构的实现进行了分离。</p>
+</blockquote>
+<a id="more"></a>
+
+
+
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>STL算法部分主要由头文件<code>&lt;algorithm&gt;</code>,<code>&lt;numeric&gt;</code>,<code>&lt;functional&gt;</code>组成。要使用 STL中的算法函数必须包含头文件<code>&lt;algorithm&gt;</code>，对于数值算法须包含<code>&lt;numeric&gt;</code>，<code>&lt;functional&gt;</code>中则定义了一些模板类，用来声明函数对象。</p>
+<p> STL中算法大致分为四类：</p>
+<ol>
+<li>非可变序列算法：指不直接修改其所操作的容器内容的算法。</li>
+<li>可变序列算法：指可以修改它们所操作的容器内容的算法。</li>
+<li>排序算法：包括对序列进行排序和合并的算法、搜索算法以及有序序列上的集合操作。</li>
+<li>数值算法：对容器内容进行数值计算。</li>
+</ol>
+<h2 id="排序函数"><a href="#排序函数" class="headerlink" title="排序函数"></a>排序函数</h2><table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sort (first, last)</td>
+<td align="center">对容器或普通数组中 [first, last) 范围内的元素进行排序，默认进行升序排序。</td>
+</tr>
+<tr>
+<td align="center">stable_sort (first, last)</td>
+<td align="center">和 sort() 函数功能相似，不同之处在于，对于 [first, last) 范围内值相同的元素，该函数不会改变它们的相对位置。</td>
+</tr>
+<tr>
+<td align="center">partial_sort (first, middle, last)</td>
+<td align="center">从 [first,last) 范围内，筛选出 middle-first 个最小的元素并排序存放在 [first，middle) 区间中。</td>
+</tr>
+<tr>
+<td align="center">is_sorted (first, last)</td>
+<td align="center">检测 [first, last) 范围内是否已经排好序，默认检测是否按升序排序。</td>
+</tr>
+<tr>
+<td align="center">void nth_element (first, n_th, last)</td>
+<td align="center">找到 [first, last) 范围内按照排序规则（默认按照升序排序）应该位于第 n_th 个位置处的元素，并将其放置到此位置。同时使该位置左侧的所有元素都比其存放的元素小，该位置右侧的所有元素都比其存放的元素大。</td>
+</tr>
+</tbody></table>
+<p>对于表中罗列的这些函数，本文会选取一部分常用的函数进行介绍。</p>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><p>C++ STL 标准库中的 sort() 函数，本质就是一个模板函数。该函数专门用来对容器或普通数组中指定范围内的元素进行排序，排序规则默认以元素值的大小做升序排序，除此之外我们也可以选择标准库提供的其它排序规则（比如<code>std::greater&lt;T&gt;</code>降序排序规则），也可以自定义排序规则。</p>
+<blockquote>
+<p>sort() 函数是基于快速排序实现的</p>
+</blockquote>
+<p>注意：</p>
+<ol>
+<li>容器支持的迭代器类型必须为随机访问迭代器。这意味着，sort() 只对 array、vector、deque 这 3 个容器提供支持。</li>
+<li>如果对容器中指定区域的元素做默认升序排序，则元素类型必须支持<code>&lt;</code>小于运算符；同样，如果选用标准库提供的其它排序规则，元素类型也必须支持该规则底层实现所用的比较运算符；</li>
+<li>sort() 函数在实现排序时，需要交换容器中元素的存储位置。这种情况下，如果容器中存储的是自定义的类对象，则该类的内部必须提供移动构造函数和移动赋值运算符。</li>
+<li>另外还需要注意的一点是，对于指定区域内值相等的元素，sort() 函数无法保证它们的相对位置不发生改变。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//对 [first, last) 区域内的元素做默认的升序排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span> <span class="params">(RandomAccessIterator first, RandomAccessIterator last)</span></span>;</span><br><span class="line"><span class="comment">//按照指定的 cmp 排序规则，对 [first, last) 区域内的元素进行排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span> <span class="params">(RandomAccessIterator first, RandomAccessIterator last, Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中，<code>first</code> 和 <code>last </code>都为随机访问迭代器，它们的组合<code>[first, last)</code>用来指定要排序的目标区域</p>
+<p><code>cmp</code> 可以是 C++ STL 标准库提供的排序规则（比如 <code>std::greater&lt;T&gt;</code>），也可以是自定义的排序规则，如：</p>
+<p>使用函数对象自定义排序规则；重载关系运算符实现自定义排序；或者直接定义一个具有 2 个参数并返回 bool 类型值的函数作为排序规则。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以普通函数的方式实现自定义排序规则</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mycmp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (i &lt; j);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以函数对象的方式实现自定义排序规则</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">mycmp2</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span> <span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (i &lt; j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="stable-sort"><a href="#stable-sort" class="headerlink" title="stable_sort()"></a>stable_sort()</h3><p><code>stable_sort()</code> 函数可以看作是 <code>sort()</code> 函数在功能方面的升级版。换句话说，<code>stable_sort()</code> 和 <code>sort()</code> 具有相同的使用场景，就连语法格式也是相同的，只不过<code>stable_sort()</code>在功能上除了可以实现排序，还可以保证不改变相等元素的相对位置。</p>
+<hr>
+<h3 id="partial-sort"><a href="#partial-sort" class="headerlink" title="partial_sort()"></a>partial_sort()</h3><p>partial_sort() 函数有 2 种用法，其语法格式分别为：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//按照默认的升序排序规则，对 [first, last) 范围的数据进行筛选并排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">partial_sort</span> <span class="params">(RandomAccessIterator first,RandomAccessIterator middle,RandomAccessIterator last)</span></span>;</span><br><span class="line"><span class="comment">//按照 cmp 排序规则，对 [first, last) 范围的数据进行筛选并排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">partial_sort</span> <span class="params">(RandomAccessIterator first,RandomAccessIterator middle,</span></span></span><br><span class="line"><span class="function"><span class="params">                   RandomAccessIterator last,Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中，<code>first</code>、<code>middle</code> 和 <code>last</code> 都是随机访问迭代器，<code>cmp</code> 参数用于自定义排序规则。</p>
+<p><code>partial_sort()</code> 函数会以交换元素存储位置的方式实现部分排序的。具体来说，<code>partial_sort()</code> 会将 <code>[first, last)</code> 范围内最小（或最大）的 <code>middle-first </code>个元素移动到 <code>[first, middle)</code> 区域中，并对这部分元素做升序（或降序）排序。</p>
+<p>代码演示如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mycmp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (i &gt; j);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myvector&#123; <span class="number">3</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">7</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以默认的升序排序作为排序规则,将 myvector 中最小的 4 个元素移动到开头位置并排好序</span></span><br><span class="line"><span class="built_in">std</span>::partial_sort(myvector.begin(), myvector.begin() + <span class="number">4</span>, myvector.end());<span class="comment">//1 2 3 4 5 6 9 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 以指定的 mycmp 作为排序规则，将 myvector 中最大的 4 个元素移动到开头位置并排好序</span></span><br><span class="line"><span class="built_in">std</span>::partial_sort(myvector.begin(), myvector.begin() + <span class="number">4</span>, myvector.end(), mycmp());<span class="comment">//9 7 6 5 1 2 3 4</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="is-sorted"><a href="#is-sorted" class="headerlink" title="is_sorted()"></a>is_sorted()</h3><p>is_sorted() 函数有 2 种语法格式，分别是：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判断 [first, last) 区域内的数据是否符合 std::less&lt;T&gt; 排序规则，即是否为升序序列</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_sorted</span> <span class="params">(ForwardIterator first, ForwardIterator last)</span></span>;</span><br><span class="line"><span class="comment">//判断 [first, last) 区域内的数据是否符合 cmp 排序规则  </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_sorted</span> <span class="params">(ForwardIterator first, ForwardIterator last, Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中，<code>first</code> 和 <code>last</code> 都为正向迭代器（这意味着该函数适用于大部分容器），<code>[first, last) </code>用于指定要检测的序列；<code>cmp</code> 用于指定自定义的排序规则。</p>
+<p>该函数会返回一个<code> bool</code> 类型值，即如果<code> [first, last)</code> 范围内的序列符合我们指定的排序规则，则返回 true；反之，函数返回 false。值得一提得是，如果 <code>[first, last)</code> 指定范围内只有 1 个元素，则该函数始终返回 true。</p>
+<hr>
+<h3 id="nth-element"><a href="#nth-element" class="headerlink" title="nth_element()"></a>nth_element()</h3><p>在有序序列中，我们可以称第 n 个元素为整个序列中“第 n 大”的元素。</p>
+<p>简单的理解 nth_element() 函数的功能，当采用默认的升序排序规则（std::less<T>）时，该函数可以从某个序列中找到第 n 小的元素 K，并将 K 移动到序列中第 n 的位置处。不仅如此，整个序列经过 nth_element() 函数处理后，所有位于 K 之前的元素都比 K 小，所有位于 K 之后的元素都比 K 大。</p>
+<p>nth_element() 函数有以下 2 种语法格式：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//排序规则采用默认的升序排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">nth_element</span> <span class="params">(RandomAccessIterator first,RandomAccessIterator nth,RandomAccessIterator last)</span></span>;</span><br><span class="line"><span class="comment">//排序规则为自定义的 cmp 排序规则</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">nth_element</span> <span class="params">(RandomAccessIterator first,RandomAccessIterator nth,</span></span></span><br><span class="line"><span class="function"><span class="params">                  RandomAccessIterator last,Compare cmp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中，各个参数的含义如下：</p>
+<p>first 和 last：都是随机访问迭代器，[first, last) 用于指定该函数的作用范围（即要处理哪些数据）；</p>
+<p>nth：也是随机访问迭代器，其功能是令函数查找“第 nth 大”的元素，并将其移动到 nth 指向的位置；</p>
+<p>comp：用于自定义排序规则。</p>
+<p>代码演示如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mycmp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (i &gt; j);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myvector&#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//默认的升序排序作为排序规则</span></span><br><span class="line">	<span class="built_in">std</span>::nth_element(myvector.begin(), myvector.begin()+<span class="number">2</span>, myvector.end());<span class="comment">//1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义的 mycmp 降序排序作为排序规则</span></span><br><span class="line">    <span class="built_in">std</span>::nth_element(myvector.begin(), myvector.begin() + <span class="number">3</span>, myvector.end(),mycmp);<span class="comment">//5 4 3 2 1</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="合并算法"><a href="#合并算法" class="headerlink" title="合并算法"></a>合并算法</h2><h3 id="merge"><a href="#merge" class="headerlink" title="merge()"></a>merge()</h3><p>merge() 函数用于将 2 个有序序列合并为 1 个有序序列，前提是这 2 个有序序列的排序规则相同（要么都是升序，要么都是降序）。并且最终借助该函数获得的新有序序列，其排序规则也和这 2 个有序序列相同。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以默认的升序排序作为排序规则</span></span><br><span class="line"><span class="function">OutputIterator <span class="title">merge</span> <span class="params">(InputIterator1 first1, InputIterator1 last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                      InputIterator2 first2, InputIterator2 last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                      OutputIterator result)</span></span>;</span><br><span class="line"><span class="comment">//以自定义的 comp 规则作为排序规则</span></span><br><span class="line"><span class="function">OutputIterator <span class="title">merge</span> <span class="params">(InputIterator1 first1, InputIterator1 last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                      InputIterator2 first2, InputIterator2 last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                      OutputIterator result, Compare comp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>first1、last1、first2 以及 last2 都为输入迭代器，[first1, last1) 和 [first2, last2) 各用来指定一个有序序列；result 为输出迭代器，用于为最终生成的新有序序列指定存储位置；comp 用于自定义排序规则。同时，该函数会返回一个输出迭代器，其指向的是新有序序列中最后一个元素之后的位置。</p>
+<hr>
+<h3 id="inplace-merge"><a href="#inplace-merge" class="headerlink" title="inplace_merge()"></a>inplace_merge()</h3><p>当 2 个有序序列存储在同一个数组或容器中时，如果想将它们合并为 1 个有序序列，除了使用 merge() 函数，更推荐使用 inplace_merge() 函数。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//默认采用升序的排序规则</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inplace_merge</span> <span class="params">(BidirectionalIterator first, BidirectionalIterator middle,</span></span></span><br><span class="line"><span class="function"><span class="params">                    BidirectionalIterator last)</span></span>;</span><br><span class="line"><span class="comment">//采用自定义的 comp 排序规则</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inplace_merge</span> <span class="params">(BidirectionalIterator first, BidirectionalIterator middle,</span></span></span><br><span class="line"><span class="function"><span class="params">                    BidirectionalIterator last, Compare comp)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中，first、middle 和 last 都为双向迭代器，[first, middle) 和 [middle, last) 各表示一个有序序列。</p>
+<h2 id="查找函数"><a href="#查找函数" class="headerlink" title="查找函数"></a>查找函数</h2><h3 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h3><p>find() 函数用于在指定范围内查找和目标元素值相等的第一个元素。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">InputIterator <span class="title">find</span> <span class="params">(InputIterator first, InputIterator last, <span class="keyword">const</span> T&amp; val)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><code>first</code> 和 <code>last </code>为输入迭代器，<code>[first, last)</code> 用于指定该函数的查找范围；<code>val </code>为要查找的目标元素。</p>
+<p>该函数会返回一个输入迭代器，当 find() 函数查找成功时，其指向的是在 <code>[first, last) </code>区域内查找到的第一个目标元素；如果查找失败，则该迭代器的指向和 <code>last</code> 相同。</p>
+<hr>
+<h3 id="find-end"><a href="#find-end" class="headerlink" title="find_end()"></a>find_end()</h3><p>ind_end() 函数定义在<code>&lt;algorithm&gt;</code>头文件中，常用于在序列 A 中查找序列 B 最后一次出现的位置。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查找序列 [first1, last1) 中最后一个子序列 [first2, last2)</span></span><br><span class="line"><span class="function">ForwardIterator <span class="title">find_end</span> <span class="params">(ForwardIterator first1, ForwardIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                          ForwardIterator first2, ForwardIterator last2)</span></span>;</span><br><span class="line"><span class="comment">//查找序列 [first2, last2) 中，和 [first2, last2) 序列满足 pred 规则的最后一个子序列</span></span><br><span class="line"><span class="function">ForwardIterator <span class="title">find_end</span> <span class="params">(ForwardIterator first1, ForwardIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                          ForwardIterator first2, ForwardIterator last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                          BinaryPredicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>find_end() 函数会返回一个正向迭代器，当函数查找成功时，该迭代器指向查找到的子序列中的第一个元素；反之，如果查找失败，则该迭代器的指向和<code> last1</code> 迭代器相同。</p>
+<hr>
+<h3 id="find-first-of"><a href="#find-first-of" class="headerlink" title="find_first_of()"></a>find_first_of()</h3><p>find_first_of() 函数实现了在 A 序列中查找和 B 序列中任意元素相匹配的第一个元素。 </p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以判断两者相等作为匹配规则</span></span><br><span class="line"><span class="function">InputIterator <span class="title">find_first_of</span> <span class="params">(InputIterator first1, InputIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                             ForwardIterator first2, ForwardIterator last2)</span></span>;</span><br><span class="line"><span class="comment">//以 pred 作为匹配规则</span></span><br><span class="line"><span class="function">InputIterator <span class="title">find_first_of</span> <span class="params">(InputIterator first1, InputIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                             ForwardIterator first2, ForwardIterator last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                             BinaryPredicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h3><p>search() 函数定的功能恰好和 find_end() 函数相反，用于在序列 A 中查找序列 B 第一次出现的位置。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查找 [first1, last1) 范围内第一个 [first2, last2) 子序列</span></span><br><span class="line"><span class="function">ForwardIterator <span class="title">search</span> <span class="params">(ForwardIterator first1, ForwardIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                        ForwardIterator first2, ForwardIterator last2)</span></span>;</span><br><span class="line"><span class="comment">//查找 [first1, last1) 范围内，和 [first2, last2) 序列满足 pred 规则的第一个子序列</span></span><br><span class="line"><span class="function">ForwardIterator <span class="title">search</span> <span class="params">(ForwardIterator first1, ForwardIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                        ForwardIterator first2, ForwardIterator last2,</span></span></span><br><span class="line"><span class="function"><span class="params">                        BinaryPredicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h2><h3 id="partition"><a href="#partition" class="headerlink" title="partition()"></a>partition()</h3><p>partition 可直译为“分组”，partition() 函数可根据用户自定义的筛选规则，重新排列指定区域内存储的数据，使其分为 2 组，第一组为符合筛选条件的数据，另一组为不符合筛选条件的数据。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">ForwardIterator <span class="title">partition</span> <span class="params">(ForwardIterator first,ForwardIterator last,</span></span></span><br><span class="line"><span class="function"><span class="params">                           UnaryPredicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中，<code>first</code> 和 <code>last</code> 都为正向迭代器，其组合 <code>[first, last)</code> 用于指定该函数的作用范围；<code>pred</code> 用于指定筛选规则。</p>
+<p>partition() 函数还会返回一个正向迭代器，其指向的是两部分数据的分界位置，更确切地说，指向的是第二组数据中的第 1 个元素。</p>
+<p>代码演示如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mycmp</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123; <span class="keyword">return</span> (i % <span class="number">2</span>) == <span class="number">0</span>; &#125;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myvector&#123;<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; myvector&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator bound;</span><br><span class="line"></span><br><span class="line">bound = <span class="built_in">std</span>::partition(myvector.begin(), myvector.end(), mycmp());</span><br><span class="line"><span class="comment">//输出结果为8 2 6 4 5 3 7 1 9, bound = 5</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="stable-partition"><a href="#stable-partition" class="headerlink" title="stable_partition()"></a>stable_partition()</h3><p>partition() 函数只负责对指定区域内的数据进行分组，并不保证各组中元素的相对位置不发生改变。而如果想在分组的同时保证不改变各组中元素的相对位置，可以使用 stable_partition() 函数。</p>
+<p>换句话说，<code>stable_partition()</code> 和 <code>partition(()</code> 具有相同的使用场景，就连语法格式也是相同的，只不过<code>stable_partition()</code>在功能上除了可以实现排序，还可以保证不改变相等元素的相对位置。</p>
+<h2 id="翻转函数"><a href="#翻转函数" class="headerlink" title="翻转函数"></a>翻转函数</h2><h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h3><p>reverse函数功能是逆序（或反转），多用于字符串、数组、容器。</p>
+<p>reverse函数用于反转在<code>[first,last)</code>范围内的顺序（包括<code>first</code>指向的元素，不包括<code>last</code>指向的元素）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> str=<span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">reverse(str.begin(),str.end());<span class="comment">//str结果为dlrow olleh</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = &#123;<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">reverse(v.begin(),v.end());<span class="comment">//容器v的值变为1,2,3,4,5</span></span><br></pre></td></tr></table></figure>
+
+
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://c.biancheng.net/stl/" title="STL教程：C++ STL快速入门">STL教程：C++ STL快速入门</a> , <strong>[ C语言中文网 ]</strong></p>
 ]]></content>
       <categories>
